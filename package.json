@@ -1,0 +1,51 @@
+{
+  "name": "dob-extension",
+  "displayName": "DOB Language Support",
+  "description": "Activates for .dob files",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:dob"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [{
+      "id": "dob",
+      "aliases": ["DOB Language", "dob"],
+      "extensions": [".dob"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/dob-file-icon.png",
+        "dark": "./icons/dob-file-icon.png"
+      }
+    }],
+    "grammars": [
+      {
+        "language": "dob",
+        "scopeName": "source.dob",
+        "path": "./syntaxes/dob.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "dob-extension.sayHello",
+        "title": "DOB: Say Hello"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^4.9.0"
+  }
+}
